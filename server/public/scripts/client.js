@@ -8,18 +8,22 @@ function addRestaurant() {
     const name = $('#name').val();
     const address = $('#address').val();
     const bestfood = $('#bestfood').val();
-    
+
     const restaurantObject = {
         name,
         address,
         bestfood
     }
 
-    console.log(restaurantObject);
+    postRestaurant(restaurantObject);
 }
 
-function postRestaurant() {
-
+function postRestaurant(restaurantObject) {
+    $.ajax({
+        type: 'POST',
+        url: '/restaurant',
+        data: restaurantObject
+    })
 }
 
 function getRestaurants() {
