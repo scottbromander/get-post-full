@@ -1,6 +1,8 @@
 const pg = require('pg');
 const Pool = pg.Pool;
 
+// Pool is created with these settings,
+// Noting that it is connected to the 'restaurants' database
 const pool = new Pool({
     database: 'restaurants',
     host: 'localhost',
@@ -9,10 +11,12 @@ const pool = new Pool({
     idleTimeoutMillis: 30000
 });
 
+// If it actually connects, leave us a message!
 pool.on('connect', () => {
     console.log('Pool connected!');
 });
 
+// If it does not connect, log an error
 pool.on('error', (err) => {
     console.log('DB Error: ', err);
 });

@@ -2,10 +2,13 @@ const express = require('express');
 // Uses express to create a server app
 const app = express();
 
+// Brings bodyParser into our application
 const bodyParser = require('body-parser');
+
 // Port used for connections, written as localhost:5000/ on a client app
 const PORT = 5000;
-// Imports the router we created custom for '/restaurant' routes
+
+// Imports the router we created custom for '/restaurants' routes
 const restaurantRouter = require('./routes/restaurants.router');
 
 // Upgrading our server to get able to get JSON and other data,
