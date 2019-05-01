@@ -1,6 +1,7 @@
 $(document).ready(onReady);
 
 function onReady() {
+    getRestaurants();
     $('.js-btn-addRestaurant').on('click', addRestaurant);
 }
 
@@ -21,15 +22,32 @@ function addRestaurant() {
 function postRestaurant(restaurantObject) {
     $.ajax({
         type: 'POST',
-        url: '/restaurant',
+        url: '/restaurants',
         data: restaurantObject
+    }).then(function(response) {
+        getRestaurants();
     })
 }
 
 function getRestaurants() {
-
+    $.ajax({
+        type: 'GET',
+        url: '/restaurants'
+    }).then(function(arrayFromDatabase) {
+        render(arrayFromDatabase);
+    });
 }
 
-function render() {
+function render(arrayFromDatabase) {
+    $('.container').empty();
 
+    for (let restaurant of arrayFromDatabase) {
+        $('.container').append(`
+            <div>
+                <h2>${restaurant.name}</h2>
+                <h6>${restaurant.address}</h6>
+                <p>${restaurant.bestfood}</p>
+            </div>
+        `);
+    }
 }

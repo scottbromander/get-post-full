@@ -6,7 +6,7 @@ const bodyParser = require('body-parser');
 // Port used for connections, written as localhost:5000/ on a client app
 const PORT = 5000;
 // Imports the router we created custom for '/restaurant' routes
-const restaurantRouter = require('./routes/restaurant.router');
+const restaurantRouter = require('./routes/restaurants.router');
 
 // Upgrading our server to get able to get JSON and other data,
 // and store it in req.body throughout the app.
@@ -17,7 +17,7 @@ app.use(bodyParser.json());
 app.use(express.static('server/public'));
 
 // Anytime the client makes a '/restaurant' request use this router.
-app.use('/restaurant', restaurantRouter);
+app.use('/restaurants', restaurantRouter);
 
 // Turns on my server and listens for connections
 app.listen(PORT, () => {
