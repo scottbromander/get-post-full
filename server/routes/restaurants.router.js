@@ -62,7 +62,7 @@ function updateVisited(res, restaurant) {
     let visited = (restaurant.visited == 'true') || (restaurant.visited == true);
     visited = !visited;
 
-    const queryString = `UPDATE "restaurants-build" SET visited=$1 WHERE id=$2`;
+    const queryString = `UPDATE "restaurants-build" SET visited=$1 WHERE id=$2;`;
 
     pool.query(queryString, [visited, reqId])
         .then((response) => {
