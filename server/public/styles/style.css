@@ -1,3 +1,20 @@
 h1 {
-    color: blue;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
+
+.restaurant {
+    background-color: lightgray;
+    border: 1px solid black;
+}
+
+.restaurant div {
+    display: inline-block;
+    height: 50px;
+    width: 180px;
+    padding: 0 10px;
+    text-align: center;
+}
+
+.hover:hover {
+    color: yellow;
 }
